@@ -1,136 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GTA VI Countdown</title>
+<meta charset="UTF-8">
 
-    <style>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent !important;
-            overflow: hidden;
-        }
-
-        body {
-            font-family: Impact, "Arial Black", Arial, sans-serif;
-            color: white;
-        }
-
-        /*
-        CONTENEDOR PRINCIPAL
-        TOTALMENTE TRANSPARENTE
-        */
-
-        .contador {
-
-            display: flex;
-
-            flex-direction: row;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 30px;
-
-            width: max-content;
-
-            padding: 8px 20px;
-
-            background: transparent !important;
-
-            border: none;
-
-            box-shadow: none;
-
-            white-space: nowrap;
-
-        }
+<title>GTA VI Countdown</title>
 
 
-        /*
-        TITULO GTA VI
-        */
+<style>
 
-        .titulo {
+/* =========================================
+   FONDO TRANSPARENTE
+========================================= */
 
-            font-family: Impact, "Arial Black", sans-serif;
+html,
+body {
 
-            font-size: 42px;
+    margin: 0;
+    padding: 0;
 
-            font-weight: 900;
+    width: 100%;
+    height: 100%;
 
-            color: #ffffff;
+    background: transparent !important;
 
-            letter-spacing: 1px;
+    overflow: hidden;
 
-            -webkit-text-stroke: 2px #000000;
-
-            text-shadow:
-                3px 3px 0 #000000,
-                5px 5px 0 rgba(0,0,0,0.65);
-
-        }
+}
 
 
-        /*
-        CONTADOR
-        BLANCO PURO
-        */
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
 
-        .tiempo {
+.contador {
 
-            font-family: Impact, "Arial Black", sans-serif;
+    display: flex;
 
-            font-size: 46px;
+    flex-direction: column;
 
-            font-weight: 900;
+    align-items: center;
 
-            letter-spacing: 3px;
+    justify-content: flex-start;
 
-            color: #ffffff;
+    width: max-content;
 
-            -webkit-text-stroke: 2px #000000;
+    padding: 8px 15px;
 
-            text-shadow:
-                3px 3px 0 #000000,
-                5px 5px 0 rgba(0,0,0,0.65);
+    background: transparent !important;
 
-        }
+    border: none;
 
+    box-shadow: none;
 
-        /*
-        TEXTO INFORMATIVO
-        */
-
-        .etiqueta {
-
-            font-family: Impact, "Arial Black", sans-serif;
-
-            font-size: 19px;
-
-            font-weight: 900;
-
-            letter-spacing: 1px;
-
-            color: #ff4fa3;
-
-            -webkit-text-stroke: 1px #000000;
-
-            text-shadow:
-                2px 2px 0 #000000,
-                3px 3px 0 rgba(0,0,0,0.6);
-
-        }
+}
 
 
-    </style>
+/* =========================================
+   GTA VI
+========================================= */
+
+.titulo {
+
+    font-family:
+        Impact,
+        "Arial Black",
+        Arial,
+        sans-serif;
+
+    font-size: 42px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    color: #ffffff;
+
+    -webkit-text-stroke: 2px #000000;
+
+    text-shadow:
+
+        2px 2px 0 #000000,
+
+        4px 4px 0 #000000;
+
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.tiempo {
+
+    margin-top: 10px;
+
+    font-family:
+        Impact,
+        "Arial Black",
+        Arial,
+        sans-serif;
+
+    font-size: 44px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    -webkit-text-stroke: 2px #000000;
+
+    text-shadow:
+
+        2px 2px 0 #000000,
+
+        4px 4px 0 #000000;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   PARA EL LANZAMIENTO
+========================================= */
+
+.etiqueta {
+
+    margin-top: 10px;
+
+    font-family:
+        Impact,
+        "Arial Black",
+        Arial,
+        sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    color: #ffffff;
+
+    -webkit-text-stroke: 1px #000000;
+
+    text-shadow:
+
+        2px 2px 0 #000000;
+
+}
+
+
+/* =========================================
+   MENSAJE FINAL
+========================================= */
+
+.final {
+
+    font-family:
+        Impact,
+        "Arial Black",
+        Arial,
+        sans-serif;
+
+    font-size: 38px;
+
+    color: #ffffff;
+
+    -webkit-text-stroke: 2px #000000;
+
+    text-shadow:
+
+        3px 3px 0 #000000;
+
+}
+
+</style>
 
 </head>
 
@@ -146,8 +203,12 @@
     </div>
 
 
-    <div class="tiempo" id="tiempo">
+    <div
+        class="tiempo"
+        id="tiempo">
+
         Cargando...
+
     </div>
 
 
@@ -162,105 +223,139 @@
 <script>
 
 
-    /*
-    =====================================================
-    FECHA OBJETIVO
-    =====================================================
-    */
+/* =========================================
+   FECHA DEL LANZAMIENTO
+========================================= */
 
-    const fechaObjetivo = new Date("2026-11-19T00:00:00");
-
-
-    /*
-    =====================================================
-    ACTUALIZAR CONTADOR
-    =====================================================
-    */
-
-    function actualizarContador() {
-
-        const ahora = new Date();
-
-        const diferencia = fechaObjetivo - ahora;
+const fechaObjetivo =
+    new Date("2026-11-19T00:00:00");
 
 
-        /*
-        SI LLEGAMOS A LA FECHA
-        */
+/* =========================================
+   ACTUALIZAR CONTADOR
+========================================= */
 
-        if (diferencia <= 0) {
-
-            document.getElementById("tiempo").innerHTML =
-                "¡GTA VI YA ESTÁ AQUÍ!";
-
-            return;
-
-        }
+function actualizarContador() {
 
 
-        /*
-        CALCULAR DÍAS
-        */
-
-        const dias = Math.floor(
-            diferencia / (1000 * 60 * 60 * 24)
-        );
+    const ahora =
+        new Date();
 
 
-        /*
-        CALCULAR HORAS
-        */
-
-        const horas = Math.floor(
-            (diferencia / (1000 * 60 * 60)) % 24
-        );
+    const diferencia =
+        fechaObjetivo - ahora;
 
 
-        /*
-        CALCULAR MINUTOS
-        */
+    /* =====================================
+       SI YA LLEGÓ EL LANZAMIENTO
+    ===================================== */
 
-        const minutos = Math.floor(
-            (diferencia / (1000 * 60)) % 60
-        );
+    if (diferencia <= 0) {
 
 
-        /*
-        CALCULAR SEGUNDOS
-        */
-
-        const segundos = Math.floor(
-            (diferencia / 1000) % 60
-        );
+        const elemento =
+            document.getElementById("tiempo");
 
 
-        /*
-        MOSTRAR CONTADOR
-        */
+        elemento.className =
+            "tiempo final";
 
-        document.getElementById("tiempo").innerHTML =
 
-            `${dias}D ${horas.toString().padStart(2, "0")}H ${minutos.toString().padStart(2, "0")}M ${segundos.toString().padStart(2, "0")}S`;
+        elemento.innerHTML =
+            "¡GTA VI YA ESTÁ AQUÍ!";
+
+
+        return;
 
     }
 
 
-    /*
-    ACTUALIZAR INMEDIATAMENTE
-    */
+    /* =====================================
+       DÍAS
+    ===================================== */
 
-    actualizarContador();
+    const dias =
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    /*
-    ACTUALIZAR CADA SEGUNDO
-    */
+    /* =====================================
+       HORAS
+    ===================================== */
 
-    setInterval(actualizarContador, 1000);
+    const horas =
+        Math.floor(
+            (diferencia /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    /* =====================================
+       MINUTOS
+    ===================================== */
+
+    const minutos =
+        Math.floor(
+            (diferencia /
+            (1000 * 60)) % 60
+        );
+
+
+    /* =====================================
+       SEGUNDOS
+    ===================================== */
+
+    const segundos =
+        Math.floor(
+            (diferencia / 1000) % 60
+        );
+
+
+    /* =====================================
+       MOSTRAR CONTADOR
+    ===================================== */
+
+    document.getElementById("tiempo").innerHTML =
+
+        `${dias}D ` +
+
+        `${horas
+            .toString()
+            .padStart(2, "0")}H ` +
+
+        `${minutos
+            .toString()
+            .padStart(2, "0")}M ` +
+
+        `${segundos
+            .toString()
+            .padStart(2, "0")}S`;
+
+}
+
+
+/* =========================================
+   INICIAR
+========================================= */
+
+actualizarContador();
+
+
+/* =========================================
+   ACTUALIZAR CADA SEGUNDO
+========================================= */
+
+setInterval(
+    actualizarContador,
+    1000
+);
 
 
 </script>
 
 
 </body>
+
 </html>
